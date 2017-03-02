@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src='js/jquery-3.1.1.js'></script>-->
+    <script src='02-njQuery-1.0.0.js'></script>
+        <script>
+            /*
+            1.jQuery是一个立即执行的函数
+
+            2.jQuery在调用自己的时候会给自己传递一个window
+            传入window的目的有两个
+            1.为了将来压缩代码
+            2.为了提升查找效率
+
+            3.jQuery的形参还接受一个undefined
+            因为在老版本的IE浏览器下undefined的值是可以被修改了, 为了防止外界修改这个值, 所以自己搞了一个
+
+            4.jQuery为什么要使用闭包
+            为了防止冲突
+
+            5.jQuery是如何让外界访问内部的数据的
+             window.jQuery = window.$ = jQuery;
+
+             6.jQuery是如何创建对象的?
+             var jQuery = function( selector, context ) {
+                return new jQuery.fn.init( selector, context, rootjQuery );
+             };
+             jQuery.fn = jQuery.prototype = {};
+             jQuery.fn.init.prototype = jQuery.fn;
+             */
+            /*
+            (function (window, undefined) {
+
+                // 将内部创建好的jQuery对象暴露给外界使用
+                window.jQuery = window.$ = jQuery;
+            })(window);
+            */
+
+            /*
+            function Dog() {
+            }
+            Dog.prototype = {
+                constrctor : Dog,
+                init: function () {
+                    this.name = 'wc';
+                    this.age = 3;
+                },
+                say:function () {
+                    console.log('wang wang ' + this.name + this.age);
+                }
+            }
+            var d = new Dog();
+//            d.say();
+            // 弊端: 如果不手动调用init那么无法初始化数据
+            d.init();
+            d.say();
+            */
+             /*
+            function Dog() {
+                return new Dog.prototype.init();
+            }
+            Dog.prototype = {
+                constrctor : Dog,
+                init: function () {
+                    this.name = 'wc';
+                    this.age = 3;
+                },
+                say:function () {
+                    console.log('wang wang ' + this.name + this.age);
+                }
+            }
+            Dog.prototype.init.prototype = Dog.prototype;
+            var d = new Dog();
+            d.say();
+            */
+            console.log(njQuery());
+        </script>
+</head>
+<body>
+
+</body>
+</html>
