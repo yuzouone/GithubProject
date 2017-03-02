@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src='js/jquery-3.1.1.js'></script>-->
+    <!--<script src='04-njQuery-1.0.1.js'></script>-->
+    <!--<script src='06-njQuery-1.0.2.js'></script>-->
+    <script src='08-njQuery-1.0.4.js'></script>
+        <script>
+            /*
+             jQ入口函数传入不同参数得到的实例
+             1.传入 '' null undefined NaN  0  false
+             2.传入选择器
+             3.html片段
+             4.数组
+             5.伪数组
+             6.对象
+             7.DOM
+             8.基本数据类型
+             */
+//             1.传入 '' null undefined NaN  0  false
+            // 会返回一个空的jQuery对象, this
+            /*
+            console.log($(''));
+            console.log($(null));
+            console.log($(undefined));
+            console.log($(NaN));
+            console.log($(0));
+            console.log($(false));
+             */
+            window.onload = function () {
+ //               2.传入选择器
+//                会返回一个jQuery对象, 并且将选择器选择到的DOM元素存储到当前jq对象中
+                /*
+                console.log($('span'));
+
+                console.log($('.tag'));
+                 */
+
+//                 3.html片段
+                /*
+//                会返回一个jQuery对象, 会先根据html代码片段创建DOM元素, 然后将创建好的元素添加到jQ对象中
+//              console.log($('<strong>我是strong</strong><i>我是i</i>'));
+//                console.log($(' <div><strong>我是strong</strong></div><i>我是i</i>'));
+//                 console.log($('<a>'));
+                 */
+
+
+//                4.数组
+//                会返回一个jQuery对象, 会把数组中的每一个元素添加到jQ对象中
+                /*
+                var arr = [1, 3, 5, 7, 9];
+                console.log($(arr));
+                */
+
+//                什么是伪数组?
+//                1.必须有length属性
+//                2.必须有length-1的那个属性
+
+//                 5.伪数组
+                /*
+//                 会返回一个jQuery对象, 会把伪数组中的每一个元素添加到jQ对象中
+                var obj = {0: 'zs', 1: 'nj', length: 2};
+                var res = document.querySelectorAll('.tag');
+//                console.log(res);
+//                console.log($(res));
+                console.log($(obj));
+                */
+
+//                6.对象
+                /*
+//                会返回一个jQuery对象, 会把传入的对象直接添加到jQ对象中, 而不传入对象的属性
+                var obj = {name: 'nj'};
+                console.log($(obj));
+                */
+
+//                7.DOM
+                /*
+//                会返回一个jQuery对象, 会把传入的DOM元素直接添加到jQ对象中
+                var div = document.createElement('div');
+                console.log($(div));
+                */
+
+//                基本数据类型
+                /*
+//                会返回一个jQuery对象, 会把传入的基本数据类型直接添加到jQ对象中
+                // false / null / undefined / string除外
+                console.log($(123));
+                console.log($(true));
+                 */
+
+                /*
+                入口函数传入不同类型的参数的处理规律:
+                 1.传入 '' null undefined NaN  0  false , 直接返回空对象, this
+                 2.传入的是字符串, 那么需要判断是选择器还是html代码片段
+                 2.1如果是选择器, 将查找的DOM元素存储到当前jQ对象中返回
+                 2.2如果是html代码片段, 会先根据html代码片段创建DOM元素, 然后将创建好的元素添加到jQ对象中
+                 3.传入的是数组/伪数组, 会把数组/伪数组中的每一个项添加到jQ对象中
+                 4.其他, 直接把传入的内容添加到jQ对象中
+                */
+
+//                $('span');
+            }
+
+
+        </script>
+</head>
+<body>
+<p class="tag">我是p标签1</p>
+<p class="tag">我是p标签2</p>
+<p class="tag">我是p标签3</p>
+<span>span1</span>
+<span>span2</span>
+</body>
+</html>
